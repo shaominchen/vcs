@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2017 VMware, Inc.  All rights reserved. VMware Confidential -->
+
+<!-- Ant file build vSphere Container Service Implementation. -->
+<project name="vSphereContainerService" default="war" basedir=".">
+
+   <!-- reference implementation specific properties. -->
+   <property name="vendor" value="VMware, Inc." />
+   <property name="title" value="vSphere Container Service" />
+   <property name="version" value="0.1" />
+
+   <property name="build.dir" value="war/WEB-INF/classes" />
+
+   <property name="lib.dir" value="war/WEB-INF/lib" />
+
+   <!-- log4j related property. -->
+   <property name="log4j.properties" value="conf/log4j.properties" />
+
+   <path id="build.classpath">
+      <fileset dir="${lib.dir}">
+         <include name="*.jar" />
+      </fileset>
+   </path>
+
+   <!-- Target for compiling reference implementation -->
+   <target name="compile">
+      <mkdir dir="${build.dir}" />
+      <javac srcdir="src" destdir="${build.dir}" classpathref="build.classpath" debug="true">
+         <compilerarg value="-Xlint:deprecation" />
+         <compilerarg value="-Xlint:unchecked" />
+      </javac>
+   </target>
+
+   <target name="war" depends="compile">
+      <jar destfile="vcs.war" basedir="war" />
+   </target>
+</project>
