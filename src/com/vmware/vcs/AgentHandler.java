@@ -71,7 +71,6 @@ public class AgentHandler {
     */
    public AgentHandler(String selfUrl,
                        String selfIp,
-                       String ovfUrl,
                        String vibUrl,
                        boolean deployVibs,
                        Map<String, String> ovfEnvironment,
@@ -82,9 +81,7 @@ public class AgentHandler {
 
       String urlPrefix = VcsManager.expandUrl(selfUrl, selfIp) + "/";
 
-      // Set vib and ovf url
-      _agentConfigInfo.setOvfPackageUrl(urlPrefix + ovfUrl);
-
+      // Set vib url
       if (deployVibs) {
          _agentConfigInfo.setVibUrl(urlPrefix + vibUrl);
 
@@ -105,8 +102,8 @@ public class AgentHandler {
       _agentConfigInfo.setOvfEnvironment(ovfEnv);
 
       _agencyConfigInfo = new AgencyConfigInfo();
-      _agencyConfigInfo.setAgencyName("Sample Service");
-      _agencyConfigInfo.setAgentName("Sample Service");
+      _agencyConfigInfo.setAgencyName("vSphere Container Service Agent");
+      _agencyConfigInfo.setAgentName("vSphere Container Service Agent");
       _agencyConfigInfo.getAgentConfig().add(_agentConfigInfo);
 
       // Set solution scope (empty to start with)

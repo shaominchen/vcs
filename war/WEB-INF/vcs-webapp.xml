@@ -62,7 +62,6 @@
    <bean id="agentHandler" class="com.vmware.vcs.AgentHandler">
       <constructor-arg value="${self.url.prefix}" />
       <constructor-arg value="${self.ip}" />
-      <constructor-arg value="${ovf.url}" />
       <constructor-arg value="${vib.url}" />
       <constructor-arg value="${vib.deploy}" />
       <constructor-arg>
