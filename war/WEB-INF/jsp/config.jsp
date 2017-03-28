@@ -52,9 +52,9 @@
                    <center>
                    <%
                       if (model.isAgentHandlerUnregistered()) {
-                         out.println("<input type=\"submit\" value=\"Update Configuration\" disabled />");
+                         out.println("<input type=\"submit\" value=\"Deploy vDVS VIB\" disabled />");
                       } else {
-                         out.println("<input type=\"submit\" value=\"Update Configuration\" />");
+                         out.println("<input type=\"submit\" value=\"Deploy vDVS VIB\" />");
                       }
                    %>
                    </center>
